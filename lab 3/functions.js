@@ -22,7 +22,7 @@ const getDate = _ =>{
 }
 
 const randomArray = (size = 5) => {
-  if(size > 11) size = 10;
+  if(size > 10) size = 10;
   let arr = [];
   for(let i = 0; i < size; i++){
     arr[i] = Math.ceil((Math.random() * 10));
@@ -31,13 +31,8 @@ const randomArray = (size = 5) => {
 }
 
 const displayMaxMin = numbers => {
-  let min = numbers[0];
-  let max = numbers[0];
-  numbers.forEach(number => {
-    if(number > max) max = number;
-    if(number < min) min = number;
-  })
-  console.log("min", min, "max",  max)
+  numbers = numbers.sort((a,b) => a - b);
+  console.log("min", numbers[0], "max",  numbers[numbers.length-1])
 }
 
 const removeRepeated = numbers => {
