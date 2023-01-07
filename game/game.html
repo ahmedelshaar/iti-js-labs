@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bird Shooting</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="bar" style="display: none;">
+    <div><p>welcome: <span class="name"></span></p></div>
+    <div><p>Score: <span id="score">0</span></p></div>
+    <div><p>Time Limit: <span id="time">1:00</span></p></div>
+    <div><p>Birds Killed: <span id="kill">0</span></p></div>
+    <div><p>Best Score: <span id="best">0</span></p></div>
+    <div><p>Last Score: <span id="last">0</span></p></div>
+  </div>
+  <div class="box bg-light popup" id="welcome">
+    <h2>Welcome <span class="name"></span></h2>
+    <img src="img/hi.gif" />
+    <h2>To win you need Get 50 Point</h2>
+    <button class="start">Start Game</button>
+  </div>
+  <div class="box bg-light popup" id="welcomeBack">
+    <h2>Welcome Back <span class="name"></span></h2>
+    <img src="img/hi.gif" />
+    <h2>Last Score: <span class="last"></span></h2>
+    <h2>Best Score: <span class="best"></span></h2>
+    <button class="start">Start Game</button>
+  </div>
+  <div class="box bg-light popup" id="loser">
+    <h2>You are a Loser</h2>
+    <img src="img/lose.gif" class="pop" />
+    <button class="start">Try Again</button>
+    <button class="logout">Exit</button>
+  </div> 
+  <div class="box bg-light popup" id="winner">
+    <h2>You are a Winner</h2>
+    <img src="img/win.gif" class="pop"/>
+    <button class="start">Play Again</button>
+    <button class="logout">Exit</button>
+  </div>
+  <audio controls autoplay loop style="display: none;">
+    <source src="sound/background.mp3" type="audio/mpeg">
+  </audio>
+  <script src="js/setting.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

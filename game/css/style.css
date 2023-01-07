@@ -1,0 +1,93 @@
+html{
+  cursor: url(../img/shoot.svg) 64 64, auto;
+}
+body{
+  overflow: hidden;
+  margin: 0;
+  background: url('../img/bg.png');
+  background-size: cover;
+}
+.bg-light, .bar > div{
+  background: #ffffff96;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 2px 2px 8px #0000007d;
+}
+.box {
+  width: 400px;
+  padding: 25px;
+  margin: 50px auto;
+}
+#birds h2{
+  margin: 0;
+}
+#birds div{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 5px;
+}
+#birds p{
+  font-size: 30px;
+}
+#birds img{
+  width: 100px;
+}
+form label, #birds h2, .popup h2{
+  color: #045123;
+  font-size: 24px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 20px;
+}
+form input{
+  width: 80%;
+  font-size: 20px;
+  outline: 0;
+  border: 0;
+  border-radius: 15px;
+  padding: 5px 11px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+button{
+  background: #176636;
+  color: #fff;
+  padding: 10px 30px;
+  font-size: 17px;
+  border: 0;
+  border-radius: 15px;
+}
+#error{
+  margin-top: 0;
+  display: none;
+}
+.bar{
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+}
+.bar div p{
+  font-size: 24px;
+  margin: 0;
+  padding: 10px 20px;  
+}
+.popup{
+  width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  display: none;
+}
+.popup img{
+  display: block;
+  margin: auto auto 20px;
+}
+.logout{
+  position: relative;
+}

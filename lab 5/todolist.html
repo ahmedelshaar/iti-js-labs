@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      text-align: center;
+    }
+    input{
+      font-size: 24px;
+      width: 40%;
+    }
+    button{
+      background-color: darkgrey;
+      padding: 10px 20px;
+      border: 0;
+      border-radius: 20px;
+      font-size: 20px;
+      color: #fff;
+      cursor: pointer;
+    }
+    #error{
+      font-size: 24px;
+      color: red;
+    }
+    table{
+      width: 100%;
+    }
+    thead{
+      background-color: red;
+    }
+    th{
+      color: #fff;
+    }
+    th, td{
+      width: 33%;
+      font-size: 24px;
+    }
+    tr:nth-child(even){
+      background-color: #dcd5d5;
+    }
+    .checked{
+      text-decoration: line-through;
+    }
+    img{
+      width: 28px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <h2>To Do Organizer</h2>
+  <form id="addTask">
+    <input type="text" name="task" />
+    <button type="submit">Add</button>
+    <p id="error" style="display: none;">Can't Empty</p>
+  </form>
+  <table>
+    <thead>
+        <tr>
+            <th>Done</th>
+            <th>Task</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td> <input type="checkbox"></td>
+          <td>Task</td>
+          <td><img src="image/delete.png"></td>
+        </tr>
+        <tr>
+          <td> <input type="checkbox"></td>
+          <td>Task</td>
+          <td><img src="image/delete.png"></td>
+        </tr>
+    </tbody>
+  </table>
+  <script src="todolist.js"></script>
+</body>
+</html>

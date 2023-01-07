@@ -1,93 +1,68 @@
-function fall(egg,top,basket) {  
-    egg.style.left = getRandomInt(0,window.innerWidth-egg.width)+'px';
-    let id=setInterval(function(){
-        top+=30
-        if(top<(window.innerHeight-egg.height))
-            egg.style.top=top+"px"
-        else
-        {
-            if(
-                parseInt(egg.style.left)>parseInt( basket.style.left )
-                &&
-                parseInt(egg.style.left)+parseInt(egg.width)<parseInt(basket.style.left)+parseInt(basket.width)
-                 ){
-                counter++;
-                span.innerHTML = counter;
-                // egg.remove();
-                top = 0;
-                fall(egg,top,basket);
-                egg.src = "image/basket.png";
-                
+function down(egg,basket) {
+    egg.style.top = '0px';
+    egg.style.left = (Math.random() * (window.innerWidth - egg.width - 25)) + 'px';
+    let counterElement = document.querySelector(".counter");
+    let top = -egg.height;
+    let id = setInterval(function(){
+        if(top + 5 <= (window.innerHeight - egg.height - basket.height / 3)){
+            top += 5;
+            egg.style.top= top + "px"
+        }else {
+            let leftEgg = parseInt(egg.style.left);
+            let leftBasket = parseInt(basket.style.left);
+            if(leftEgg > leftBasket && leftEgg < leftBasket + basket.width){
+                counterElement.innerText = +counterElement.innerText + 1;
+                down(egg, basket);
+
             }else{
-                // alert("Game Over");
                 egg.src = 'image/egg-broken.png';
+                egg.style.top = window.innerHeight - egg.height - 1 + "px";
             }
             clearInterval(id);
         }
-      },100);
-
+      }, 25);
 };
 
-
-function getRandomInt(min=0, max=window.innerWidth) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); // The maximum is exclusive and the minimum is inclusive
-  }
-
-
-
 window.addEventListener('load', function() {
-    
-    
+    // Create Basket
     let basket = document.createElement("img");
     basket.src = 'image/basket.png';
-    basket.width = 200;
+    basket.width = 100;
     basket.height = 100;
     basket.style.position = 'absolute';
-    left = Math.round( (window.innerWidth-basket.width)/2 );
-    basket.style.left = left+'px';
-    basket.style.top = this.window.innerHeight-basket.height+'px';
-    this.window.addEventListener('keydown', function(event) {
-        if(event.key =="ArrowRight")
-        {
-            left+=50;
-            if(left<(window.innerWidth-basket.width))
+    let left = Math.round( (window.innerWidth-basket.width)/2 );
+    basket.style.left = left + 'px';
+    basket.style.top = window.innerHeight - basket.height - 1 + 'px';
+    document.body.appendChild(basket);
+
+    // Create Egg
+    let egg = document.createElement("img");
+    egg.src = 'image/egg.png';
+    egg.width = 50;
+    egg.height = 50;
+    egg.style.position = 'absolute';
+    this.document.body.appendChild(egg);
+
+    down(egg,basket);
+
+    window.addEventListener('keydown', function(event) {
+        if(event.key =="ArrowRight") {
+            if(left + 25 < (window.innerWidth-basket.width)){
+                left += 25;
                 basket.style.left=left+"px"
-            else 
-                left=window.innerWidth-basket.width;
-        }else if(event.key =="ArrowLeft")
-        {
-            left-=50;
-            if(left>=0)
+            }else{ 
+                left = window.innerWidth - basket.width - 2;
                 basket.style.left=left+"px"
-            else 
-                left=0;
+            }
+        }else if(event.key =="ArrowLeft") {
+            if(left - 25 >= 0){
+                left -= 25;
+                basket.style.left=left+"px"
+            }else{ 
+                left = 0;
+                basket.style.left="0px"
+            }
         }
     });
-    
-    
-    
-    this.document.body.appendChild(basket);
-    // egg.style.top = top+'px';
-    counter = 0;
-    span = document.createElement("span");
-    span.style.position = 'absolute';
-    span.style.top = '0px';
-    span.style.left = '0px';
-    span.style.fontSize = '50px';
-    span.style.color = 'red';
-    span.innerHTML = counter;
-    this.document.body.appendChild(span);
 
-    let egg = document.createElement("img");
-    let top = 0;
-    egg.src = 'image/egg.png';
-    egg.width = 100;
-    egg.height = 100;
-    egg.style.position = 'absolute';
-    egg.style.top = top+'px';
-    this.document.body.appendChild(egg);
-    // egg = document.querySelector("img");
-    fall(egg,top,basket);
 });
